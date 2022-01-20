@@ -15,9 +15,15 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <form action="" method="POST">
+                            <form action="{{ route('contactos.store') }}" method="POST">
+                                @csrf
+                                @method('POST')
                                 <label for="categoria">Categoria</label>
-                                <select name="categoria" id="categoria" class="form-select">
+                                <select name="categoria" id="categoria" class="form-select" required>
+                                        <option value="">Selecciona una opcion</option>
+                                    @foreach ($categorias as $item)
+                                        <option value="{{ $item->id_categoria }}">{{ $item->nombre }}</option>
+                                    @endforeach
                                 </select>
                                 <label for="paterno">Apellido paterno</label>
                                 <input type="text" class="form-control" id="paterno" name="paterno" required>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Contactos;
 use App\Models\ContactosListado;
 use Illuminate\Http\Request;
@@ -26,7 +27,8 @@ class ContactosController extends Controller
      */
     public function create()
     {
-        return view('contactos/agregar');
+        $categorias = Categoria::all();
+        return view('contactos/agregar', compact('categorias'));
     }
 
     /**
@@ -37,7 +39,16 @@ class ContactosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contacto = new Contactos();
+        $contacto->id_categoria = $request->post('categoria');
+        $contacto->nombre = $request->post('nombre');
+        $contacto->paterno = $request->post('paterno');
+        $contacto->materno = $request->post('materno');
+        $contacto->telefono = $request->post('telefono');
+        $contacto->email = $request->post('correo');
+        $contacto->save();
+
+        return redirect()->route('contactos.index')->with('success', 'Agregado con exito!');
     }
 
     /**

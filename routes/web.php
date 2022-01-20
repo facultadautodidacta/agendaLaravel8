@@ -34,4 +34,5 @@ Route::prefix('contactos')->group(function(){
     Route::get('/agregar', [ContactosController::class, 'create'])->name('contactos.create');
     Route::get('/editar', [ContactosController::class, 'edit'])->name('contactos.edit');
     Route::get('/eliminar', [ContactosController::class, 'show'])->name('contactos.show');
+    Route::post('/guardar', [ContactosController::class, 'store'])->name('contactos.store');
 });
