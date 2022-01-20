@@ -30,16 +30,18 @@
                                     <th>Eliminar</th>
                                 </thead>
                                 <tbody>
+                                @foreach ($listado as $item)
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $item->paterno }}</td>
+                                        <td>{{ $item->materno }}</td>
+                                        <td>{{ $item->nombre }}</td>
+                                        <td>{{ $item->telefono }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->nombre_categoria }}</td>
                                         <td></td>
                                         <td></td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

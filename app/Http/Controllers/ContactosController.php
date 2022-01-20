@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contactos;
+use App\Models\ContactosListado;
 use Illuminate\Http\Request;
 
 class ContactosController extends Controller
@@ -14,7 +15,8 @@ class ContactosController extends Controller
      */
     public function index()
     {
-        return view('contactos/inicio');
+        $listado = ContactosListado::all();
+        return view('contactos/inicio', compact('listado'));
     }
 
     /**
