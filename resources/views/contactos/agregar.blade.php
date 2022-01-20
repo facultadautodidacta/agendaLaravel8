@@ -36,7 +36,9 @@
                                 <label for="correo">Correo electronico</label>
                                 <input type="text" class="form-control" id="correo" name="correo" required>
                                 <br>
-                                <button class="btn btn-primary">Agregar</button>
+                                <button class="btn btn-primary">
+                                <span class="fas fa-user-plus"></span> Agregar
+                                </button>
                             </form>
                         </div>
                     </div>

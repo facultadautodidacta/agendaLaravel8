@@ -11,7 +11,7 @@
                         <div class="col-sm-12">
                             <h2>Contactos</h2>
                             <a href="{{ route('contactos.create') }}" class="btn btn-primary">
-                                Agregar nuevo contacto
+                                <span class="fas fa-user-plus"></span> Agregar nuevo contacto
                             </a>
                             <hr>
                             @if ($mensaje = Session::get('success'))
@@ -21,9 +21,9 @@
                             @endif
                         </div>
                     </div>
-                    <div class="row text-center">
+                    <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-sm table-bordered">
+                            <table class="table table-sm table-bordered" id="tablaContactos">
                                 <thead>
                                     <th>Apellido paterno</th>
                                     <th>Apellido materno</th>
@@ -43,16 +43,16 @@
                                         <td>{{ $item->telefono }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->nombre_categoria }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('contactos.edit', $item->id_contacto) }}" 
                                                 class="btn btn-warning btn-sm">
-                                                Editar
+                                                <span class="fas fa-user-edit"></span>
                                             </a>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('contactos.show', $item->id_contacto) }}" 
                                                 class="btn btn-danger btn-sm">
-                                                Eliminar
+                                                <span class="fas fa-user-times"></span>
                                             </a>
                                         </td>
                                     </tr>
@@ -65,4 +65,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('dataTable')
+    <script>
+        $(document).ready(function(){
+            $('#tablaContactos').DataTable();
+        })
+    </script>
 @endsection

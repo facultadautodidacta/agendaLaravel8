@@ -28,7 +28,9 @@
                                 rows="5" 
                                 class="form-control">{{ $categorias->descripcion }}</textarea>
                                 <br>
-                                <button class="btn btn-warning">Actualizar</button>
+                                <button class="btn btn-warning">
+                                <span class="fas fa-edit"></span> Actualizar
+                                </button>
                             </form>
                         </div>
                     </div>

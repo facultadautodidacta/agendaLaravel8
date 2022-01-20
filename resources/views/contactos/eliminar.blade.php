@@ -43,7 +43,9 @@
                                 <form action="{{ route('contactos.destroy', $contacto->id_contacto) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger">Eliminar</button>
+                                    <button class="btn btn-danger">
+                                    <span class="fas fa-user-times"></span> Eliminar
+                                    </button>
                                 </form>
                               </div>
                         </div>

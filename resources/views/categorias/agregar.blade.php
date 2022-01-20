@@ -26,7 +26,9 @@
                                 cols="30" 
                                 rows="5" class="form-control"></textarea>
                                 <br>
-                                <button class="btn btn-primary">Agregar</button>
+                                <button class="btn btn-primary">
+                                   <span class="fas fa-plus-square"></span> Agregar
+                                </button>
                             </form>
                         </div>
                     </div>

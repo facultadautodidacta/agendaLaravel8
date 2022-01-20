@@ -50,7 +50,9 @@
                                 <input type="text" class="form-control" id="correo" name="correo" 
                                 required value="{{ $contacto->email }}">
                                 <br>
-                                <button class="btn btn-warning">Actualizar</button>
+                                <button class="btn btn-warning">
+                                    <span class="fas fa-user-edit"></span> Actualizar
+                                </button>
                             </form>
                         </div>
                     </div>

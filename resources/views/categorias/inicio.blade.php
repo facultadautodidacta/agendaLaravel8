@@ -12,7 +12,7 @@
                         <div class="col-sm-12">
                             <h2>Categorias</h2>
                             <a href="{{ route('categorias.create') }}" class="btn btn-primary">
-                                Agregar nueva categoria
+                                <span class="fas fa-plus-square"></span> Agregar nueva categoria
                             </a>
                             <hr>
                             @if ($mensaje = Session::get('success'))
@@ -22,9 +22,9 @@
                             @endif
                         </div>
                     </div>
-                    <div class="row text-center">
+                    <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-sm table-bordered">
+                            <table class="table table-sm table-bordered" id="tablaCategorias">
                                 <thead>
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
@@ -36,13 +36,16 @@
                                     <tr>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->descripcion }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('categorias.edit', $item->id_categoria) }}" 
-                                                class="btn btn-warning btn-sm">Editar</a>
+                                                class="btn btn-warning btn-sm"> 
+                                                <span class="fas fa-edit"></span> 
+                                            </a>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('categorias.show', $item->id_categoria) }}" 
-                                                class="btn btn-danger btn-sm">Eliminar</a>
+                                                class="btn btn-danger btn-sm"> <span class="fas fa-trash-alt"></span>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -54,4 +57,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('dataTable')
+    <script>
+        $(document).ready(function(){
+            $('#tablaCategorias').DataTable();
+        });
+    </script>
 @endsection
