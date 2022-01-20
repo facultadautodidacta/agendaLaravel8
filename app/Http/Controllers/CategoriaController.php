@@ -14,7 +14,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('categorias/inicio');
+        $categorias = Categoria::all();
+        return view('categorias/inicio', compact('categorias'));
     }
 
     /**
@@ -35,7 +36,11 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria();
+        $categoria->nombre = $request->post('nombre');
+        $categoria->descripcion = $request->post('descripcion');
+        $categoria->save();
+        return redirect()->route('categorias.index')->with('success', 'Agregado con exito!');
     }
 
     /**
@@ -44,7 +49,7 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
+    public function show($id)
     {
         return view('categorias/eliminar');
     }
@@ -55,7 +60,7 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($id)
     {
         return view('categorias/editar');
     }

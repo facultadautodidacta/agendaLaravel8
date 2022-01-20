@@ -3,6 +3,7 @@
 @section('tituloPagina', 'Categorias')
 
 @section('contenido')
+
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
@@ -26,12 +27,20 @@
                                     <th>Eliminar</th>
                                 </thead>
                                 <tbody>
+                                @foreach ($categorias as $item)
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $item->nombre }}</td>
+                                        <td>{{ $item->descripcion }}</td>
+                                        <td>
+                                            <a href="{{ route('categorias.edit', $item->id_categoria) }}" 
+                                                class="btn btn-warning btn-sm">Editar</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('categorias.show', $item->id_categoria) }}" 
+                                                class="btn btn-danger btn-sm">Eliminar</a>
+                                        </td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

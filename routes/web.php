@@ -22,8 +22,9 @@ Route::get('/', function () {
 Route::prefix('categorias')->group(function(){
     Route::get('/', [CategoriaController::class, 'index'])->name('categorias.index');
     Route::get('/agregar', [CategoriaController::class, 'create'])->name('categorias.create');
-    Route::get('/editar', [CategoriaController::class, 'edit'])->name('categorias.edit');
-    Route::get('/eliminar', [CategoriaController::class, 'show'])->name('categorias.show');
+    Route::get('/editar/{id}', [CategoriaController::class, 'edit'])->name('categorias.edit');
+    Route::get('/eliminar/{id}', [CategoriaController::class, 'show'])->name('categorias.show');
+    Route::post('/guardar', [CategoriaController::class, 'store'])->name('categorias.store');
 });
 
 Route::prefix('contactos')->group(function(){

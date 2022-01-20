@@ -15,7 +15,9 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <form action="" method="POST">
+                            <form action="{{ route('categorias.store') }}" method="POST">
+                                @csrf
+                                @method('POST')
                                 <label for="nombre">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 <label for="descripcion">Descripcion</label>
