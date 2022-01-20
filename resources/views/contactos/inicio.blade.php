@@ -38,7 +38,12 @@
                                         <td>{{ $item->telefono }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->nombre_categoria }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route('contactos.edit', $item->id_contacto) }}" 
+                                                class="btn btn-warning">
+                                                Editar
+                                            </a>
+                                        </td>
                                         <td></td>
                                     </tr>
                                 @endforeach

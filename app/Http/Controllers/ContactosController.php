@@ -68,9 +68,11 @@ class ContactosController extends Controller
      * @param  \App\Models\Contactos  $contactos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contactos $contactos)
+    public function edit($id)
     {
-        return view('contactos/editar');
+        $contacto = Contactos::find($id);
+        $categorias = Categoria::all();
+        return view('contactos/editar', compact('contacto', 'categorias'));
     }
 
     /**
@@ -80,9 +82,18 @@ class ContactosController extends Controller
      * @param  \App\Models\Contactos  $contactos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contactos $contactos)
+    public function update(Request $request, $id)
     {
-        //
+        $contacto = Contactos::find($id);
+        $contacto->id_categoria = $request->post('categoria');
+        $contacto->nombre = $request->post('nombre');
+        $contacto->paterno = $request->post('paterno');
+        $contacto->materno = $request->post('materno');
+        $contacto->telefono = $request->post('telefono');
+        $contacto->email = $request->post('correo');
+        $contacto->save();
+
+        return redirect()->route('contactos.index')->with('success', 'Actualizado con exito!');
     }
 
     /**
