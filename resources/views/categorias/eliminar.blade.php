@@ -18,6 +18,25 @@
                             <div class="alert alert-danger" role="alert">
                                 ¿Estas seguro de eliminar este registro?
                                 <p>Una vez eliminado no podra ser recuperado!</p>
+
+                                <table class="table table-sm">
+                                    <thead>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $categorias->nombre }}</td>
+                                            <td>{{ $categorias->descripcion }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <form action="{{ route('categorias.destroy', $categorias->id_categoria) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Eliminar</button>
+                                </form>
                               </div>
                         </div>
                     </div>

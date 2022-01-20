@@ -15,6 +15,11 @@
                                 Agregar nueva categoria
                             </a>
                             <hr>
+                            @if ($mensaje = Session::get('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ $mensaje }}
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="row text-center">

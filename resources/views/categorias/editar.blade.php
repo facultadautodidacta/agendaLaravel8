@@ -15,14 +15,18 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <form action="" method="POST">
+                            <form action="{{ route('categorias.update', $categorias->id_categoria) }}" method="POST">
+                                @csrf
+                                @method('PUT')
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                <input type="text" class="form-control" id="nombre" name="nombre" 
+                                required value="{{ $categorias->nombre }}">
                                 <label for="descripcion">Descripcion</label>
                                 <textarea name="descripcion" 
                                 id="descripcion" 
                                 cols="30" 
-                                rows="5" class="form-control"></textarea>
+                                rows="5" 
+                                class="form-control">{{ $categorias->descripcion }}</textarea>
                                 <br>
                                 <button class="btn btn-warning">Actualizar</button>
                             </form>
