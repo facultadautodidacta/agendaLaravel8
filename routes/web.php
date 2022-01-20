@@ -33,7 +33,8 @@ Route::prefix('contactos')->group(function(){
     Route::get('/', [ContactosController::class, 'index'])->name('contactos.index');
     Route::get('/agregar', [ContactosController::class, 'create'])->name('contactos.create');
     Route::get('/editar/{id}', [ContactosController::class, 'edit'])->name('contactos.edit');
-    Route::get('/eliminar', [ContactosController::class, 'show'])->name('contactos.show');
+    Route::get('/eliminar/{id}', [ContactosController::class, 'show'])->name('contactos.show');
     Route::post('/guardar', [ContactosController::class, 'store'])->name('contactos.store');
     Route::put('/actualizar/{id}', [ContactosController::class, 'update'])->name('contactos.update');
+    Route::delete('/destruir/{id}', [ContactosController::class, 'destroy'])->name('contactos.destroy');
 });

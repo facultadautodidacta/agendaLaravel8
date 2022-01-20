@@ -14,6 +14,11 @@
                                 Agregar nuevo contacto
                             </a>
                             <hr>
+                            @if ($mensaje = Session::get('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ $mensaje }}
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="row text-center">
@@ -40,11 +45,16 @@
                                         <td>{{ $item->nombre_categoria }}</td>
                                         <td>
                                             <a href="{{ route('contactos.edit', $item->id_contacto) }}" 
-                                                class="btn btn-warning">
+                                                class="btn btn-warning btn-sm">
                                                 Editar
                                             </a>
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route('contactos.show', $item->id_contacto) }}" 
+                                                class="btn btn-danger btn-sm">
+                                                Eliminar
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

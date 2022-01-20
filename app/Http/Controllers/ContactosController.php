@@ -57,9 +57,10 @@ class ContactosController extends Controller
      * @param  \App\Models\Contactos  $contactos
      * @return \Illuminate\Http\Response
      */
-    public function show(Contactos $contactos)
+    public function show($id)
     {
-        return view('contactos/eliminar');
+        $contacto = ContactosListado::find($id);
+        return view('contactos/eliminar', compact('contacto'));
     }
 
     /**
@@ -102,8 +103,10 @@ class ContactosController extends Controller
      * @param  \App\Models\Contactos  $contactos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contactos $contactos)
+    public function destroy($id)
     {
-        //
+        $contacto = Contactos::find($id);
+        $contacto->delete();
+        return redirect()->route('contactos.index')->with('success', 'Eliminado con exito!');
     }
 }
