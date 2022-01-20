@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ContactosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +27,8 @@ Route::prefix('categorias')->group(function(){
 });
 
 Route::prefix('contactos')->group(function(){
-    
+    Route::get('/', [ContactosController::class, 'index'])->name('contactos.index');
+    Route::get('/agregar', [ContactosController::class, 'create'])->name('contactos.create');
+    Route::get('/editar', [ContactosController::class, 'edit'])->name('contactos.edit');
+    Route::get('/eliminar', [ContactosController::class, 'show'])->name('contactos.show');
 });

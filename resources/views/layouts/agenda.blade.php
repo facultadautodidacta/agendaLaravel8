@@ -38,7 +38,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('contactos.index') }}">
                 <span class="fas fa-id-card"></span> Contactos
                 </a>
               </li>
